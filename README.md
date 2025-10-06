@@ -10,6 +10,10 @@ A Tinder-style swipe game for financial awareness. Users review past transaction
 
 ## Visual Reference
 
+
+https://github.com/user-attachments/assets/0e05b762-dd9b-4cda-b44f-09007f9889a0
+
+
 Use the screenshots from the provided video to illustrate each screen and interaction state.
 
 ---
