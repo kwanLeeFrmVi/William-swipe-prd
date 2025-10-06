@@ -20,9 +20,10 @@ Use the screenshots from the provided video to illustrate each screen and intera
 
 ## User Flow
 
-1. **Welcome Screen** → Select time period → Tap START
-2. **Game Screen** → Swipe through transactions → Categorize each one
-3. **Results Screen** → View all categorized transactions → Done
+1. **Welcome Screen** → Tap time period dropdown → **Time Period Modal** appears → Select period → Tap SELECT
+2. Tap START → **Game Screen** → Swipe through transactions → Categorize each one
+3. **Results Screen (Swipe Score)** → View savings amount, score cards, Power Moves insights, and list of unnecessary transactions → Done
+
 
 ---
 
@@ -41,6 +42,41 @@ Use the screenshots from the provided video to illustrate each screen and intera
 - **START Button:** Light blue (#5DADE2), full width
 
 **Background:** Dark blue gradient (#1E3A5F to #2C5F8D)
+
+---
+
+### 1.5 Time Period Selection Modal
+
+<img height="450" alt="2025-10-06_15-03-56" src="https://github.com/user-attachments/assets/4e39da5e-541f-47f2-8545-5a69e76af2e1" />
+
+
+This modal appears when user taps the "Select Time Period" dropdown on the Welcome Screen.
+
+**Modal Design:**
+- White rounded modal overlay
+- Semi-transparent dark background (backdrop)
+- Centered on screen
+
+**Modal Header:**
+- "Select Time Period" (dark text, left-aligned)
+
+**Options List:**
+- Scrollable picker/list of options
+- Options: "7 Days", "14 Days", "30 Days", "90 Days", "1 Year"
+- Selected option highlighted/centered
+- Scroll wheel style picker (iOS style)
+
+**Select Button:**
+- Light blue button (#5DADE2)
+- White text: "SELECT"
+- Full width within modal
+- Bottom of modal
+
+**Interaction:**
+- User scrolls to select desired time period
+- Taps "SELECT" to confirm and close modal
+- Tapping outside modal closes it without selection
+- Selected value updates the dropdown on Welcome Screen
 
 ---
 
@@ -66,8 +102,12 @@ Use the screenshots from the provided video to illustrate each screen and intera
 - **Right:** Green triangle/arrow with amount (Necessary)
 - Card tilts in drag direction
 
+<img width="1080" height="1920" alt="image" src="https://github.com/user-attachments/assets/f5a86390-d5e9-46be-bfe6-85dc03ebb265" />
+
+
 <img height="450" alt="image" src="https://github.com/user-attachments/assets/c3c1bd58-3802-4387-9dca-522cb1e99f9d" />
 
+<img height="450" alt="image" src="https://github.com/user-attachments/assets/9d2d098d-73f6-4d1a-aa43-ec16022fe8fe" />
 
 <img height="450" alt="image" src="https://github.com/user-attachments/assets/0709686c-a741-4e1a-8151-61681bf5a71f" />
 
@@ -79,14 +119,60 @@ Use the screenshots from the provided video to illustrate each screen and intera
 ---
 
 ### 3. Results Screen
+<img height="450" alt="2025-10-06_15-05-36" src="https://github.com/user-attachments/assets/d3009821-283f-466e-9774-e993bec53f36" />
 
-<img width="1080" height="1920" alt="image" src="https://github.com/user-attachments/assets/285af557-fae9-4423-873a-2db15a68a067" />
+<img height="450" alt="image" src="https://github.com/user-attachments/assets/285af557-fae9-4423-873a-2db15a68a067" />
 
-**Elements:**
-- Scrollable list of all transactions
-- Each item: Logo + Merchant Name + Category + Amount
-- **Create Budget Button** (light blue)
-- **DONE Button**
+**Header:**
+- "Your Swipe Score 🎯" (white text, centered)
+
+**Savings Summary:**
+- "You could have saved" (white text)
+- Large dollar amount (e.g., "$439") - huge, bold, white text
+- This shows total unnecessary spending
+
+**Score Cards (Side by Side):**
+- **Left Card (Red):**
+  - Number of unnecessary transactions (e.g., "8")
+  - "UNNECESSARY" label with X icon
+  - Red background (#E74C3C)
+  
+- **Right Card (Green):**
+  - Number of necessary transactions (e.g., "17")
+  - "NECESSARY" label with checkmark icon
+  - Green background (#2ECC71)
+
+**Power Moves Section:**
+- Section header: "Power Moves"
+- List of 3 actionable insights, each with:
+  - Orange square icon with emoji (🔥, ✨, 🚀)
+  - Bold title (e.g., "Smash your car loan")
+  - Description text showing impact of saving money
+  - Examples:
+    - "If you redirected $439/week you could"
+    - "Save $10,014 on interest and finish your loan 1 year 4 months faster"
+    - "Reach your goal in 1 year 5 months Vs 2 years 4 months"
+
+**List of Unnecessary Spend:**
+- Section header: "List of Unnecessary Spend" (white text, left-aligned)
+- Scrollable list of white rounded cards
+- Each card shows:
+  - Company logo (left, circular or square)
+  - Merchant name (bold, black)
+  - Category text (gray, smaller)
+  - Dollar amount (right, bold, black)
+  - White background, full width with spacing
+
+**Interactions:**
+- Entire screen is scrollable
+- Power Moves cards may be tappable for more details (optional)
+- Scroll to see complete list of unnecessary transactions
+
+**Background:** Dark blue gradient (same as other screens)
+
+**Bottom Actions (if any):**
+- May include "Create Budget" or "Done" button at bottom
+- Or user swipes down/back to exit
 
 ---
 
@@ -133,6 +219,34 @@ Use the screenshots from the provided video to illustrate each screen and intera
   completedTransactions: [],
   gameStarted: false,
   gameCompleted: false
+}
+
+// Results Data
+{
+  totalSavings: 439.00,
+  unnecessaryCount: 8,
+  necessaryCount: 17,
+  powerMoves: [
+    {
+      id: 1,
+      icon: "🔥",
+      title: "Power Moves",
+      description: "If you redirected $439/week you could"
+    },
+    {
+      id: 2,
+      icon: "✨",
+      title: "Smash your car loan",
+      description: "Save $10,014 on interest and finish your loan 1 year 4 months faster"
+    },
+    {
+      id: 3,
+      icon: "🚀",
+      title: "Boost your home deposit",
+      description: "Reach your goal in 1 year 5 months Vs 2 years 4 months"
+    }
+  ],
+  unnecessaryTransactions: []
 }
 ```
 
@@ -234,18 +348,24 @@ const transactions = [
 /src
   /components
     - WelcomeScreen.jsx
+    - TimePeriodSelector.jsx
+    - TimePeriodModal.jsx
     - GameScreen.jsx
     - TransactionCard.jsx
     - ProgressIndicator.jsx
     - SwipeableCard.jsx
     - ActionButtons.jsx
     - ResultsScreen.jsx
-    - TimePeriodSelector.jsx
+    - SwipeScoreHeader.jsx
+    - PowerMoveCard.jsx
+    - TransactionListItem.jsx
   /hooks
     - useSwipe.js
     - useGameState.js
+    - useModal.js
   /utils
     - transactionData.js
+    - calculateResults.js
   /styles
 ```
 
@@ -257,23 +377,35 @@ const transactions = [
 - **Primary Background:** #1E3A5F (dark blue)
 - **Card Background:** #FFFFFF (white)
 - **Accent Orange:** #FF8C42
+- **Power Move Icon Background:** #FF8C42 (orange square)
 - **Button Blue:** #5DADE2
 - **Button Red:** #E74C3C
 - **Button Green:** #2ECC71
+- **Score Card Red:** #E74C3C
+- **Score Card Green:** #2ECC71
 - **Text Dark:** #2C3E50
 - **Text Light:** #7F8C8D
 
 ### Typography
 - **Title:** 28-32px, Bold
+- **Swipe Score Header:** 24-28px, Bold
+- **Savings Amount:** 48-64px, Extra Bold (huge)
+- **Score Card Number:** 32-40px, Bold
+- **Score Card Label:** 14-16px, Bold, Uppercase
+- **Power Move Title:** 16-18px, Bold
+- **Power Move Description:** 14-16px, Regular
+- **Section Header:** 18-20px, Bold
 - **Merchant Name:** 18-20px, Regular
-- **Amount:** 32-40px, Bold
+- **Amount:** 32-40px, Bold (on cards), 18-20px Bold (on list)
 - **Category:** 14-16px, Regular
 - **Date:** 12-14px, Light
 
 ### Spacing
 - Card border-radius: 16px
 - Button border-radius: 12px (circular for action buttons)
+- Modal border-radius: 20px
 - Card shadow: 0 4px 12px rgba(0,0,0,0.15)
+- Modal backdrop: rgba(0,0,0,0.5)
 - Standard padding: 16-24px
 
 ### Responsive Breakpoints
@@ -299,6 +431,18 @@ const transactions = [
 ### Button Feedback
 - Press: Scale to 0.95 in 100ms
 - Release: Scale to 1.0 in 100ms
+
+### Modal Animations
+- **Open:** Fade in backdrop + slide up modal from bottom (300ms)
+- **Close:** Fade out backdrop + slide down modal (250ms)
+- **Picker scroll:** Smooth momentum scrolling with snap-to-item
+
+### Results Screen Animations
+- **Screen entry:** Fade in with slight scale-up (400ms)
+- **Savings amount:** Count-up animation from 0 to final amount (800ms)
+- **Score cards:** Stagger slide-in from bottom (left card 200ms delay, right card 300ms delay)
+- **Power Moves:** Fade in and slide up, staggered (100ms delay between each)
+- **Transaction list:** Fade in after other elements (500ms delay)
 
 ---
 
@@ -332,7 +476,10 @@ const transactions = [
 ### Welcome Screen
 ✓ Display game title and instructions  
 ✓ Show preview transaction card  
-✓ Time period dropdown with options  
+✓ Time period dropdown/button opens modal  
+✓ Time Period Modal with scrollable picker  
+✓ Modal SELECT button confirms choice and closes modal  
+✓ Tap outside modal to close without selection  
 ✓ Start button validates selection and begins game  
 
 ### Game Screen
@@ -348,10 +495,16 @@ const transactions = [
 ✓ Track all decisions  
 
 ### Results Screen
-✓ Display all transactions in list  
-✓ Show merchant info and amounts  
-✓ "Create Budget" button (placeholder)  
-✓ "Done" button returns to welcome screen  
+✓ Display "Your Swipe Score" header  
+✓ Show total potential savings amount  
+✓ Display count cards (unnecessary vs necessary)  
+✓ Render "Power Moves" section with 3 insights  
+✓ Each Power Move has icon, title, and description  
+✓ Display "List of Unnecessary Spend" section  
+✓ Show all unnecessary transactions in list format  
+✓ Full screen scrollable content  
+✓ Calculate savings based on user's categorizations  
+✓ Optional: "Create Budget" or "Done" button at bottom  
 
 ---
 
