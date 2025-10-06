@@ -102,7 +102,7 @@ This modal appears when user taps the "Select Time Period" dropdown on the Welco
 - **Right:** Green triangle/arrow with amount (Necessary)
 - Card tilts in drag direction
 
-<img width="1080" height="1920" alt="image" src="https://github.com/user-attachments/assets/f5a86390-d5e9-46be-bfe6-85dc03ebb265" />
+<img height="450" alt="image" src="https://github.com/user-attachments/assets/f5a86390-d5e9-46be-bfe6-85dc03ebb265" />
 
 
 <img height="450" alt="image" src="https://github.com/user-attachments/assets/c3c1bd58-3802-4387-9dca-522cb1e99f9d" />
